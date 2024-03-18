@@ -33,9 +33,21 @@ class ViewController: UIViewController {
             display.text = String(newValue)
         }
     }
-    
     //기본 생성자로 생성 필요
     private var brain = CalculatorBrain()
+    var savedProgram: CalculatorBrain.PropertyList?
+    
+    @IBAction func save() {
+        savedProgram = brain.program
+    }
+    
+    @IBAction func restore() {
+        if savedProgram != nil {
+            brain.program = savedProgram!
+            displayValue = brain.result
+        }
+    }
+
     
     @IBAction private func performOperation(_ sender: UIButton) {
         if userInTheMiddleOfTyping {
