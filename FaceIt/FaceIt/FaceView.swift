@@ -13,6 +13,8 @@ class FaceView: UIView {
     var mouthCurvature: Double = 1.0 //굽은 비율 1 full smile, -1 full frown
     var eyesOpen: Bool = false
     var eyeBrowTilt: Double = -0.5 //-1 완전히 주름지게, 1은 완전히 풀리게
+    var color: UIColor = UIColor.blue
+    var lineWidth: CGFloat = 5.0
 
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
     // = 으로 bounds같은 변수나 메소드 부를 수 없음
@@ -45,7 +47,7 @@ class FaceView: UIView {
             startAngle: 0.0,
             endAngle: CGFloat(2*M_PI),
             clockwise: false)
-        path.lineWidth = 5.0
+        path.lineWidth = lineWidth
         return path
     }
     
@@ -71,7 +73,7 @@ class FaceView: UIView {
             let path = UIBezierPath()
             path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
             path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
-            path.lineWidth = 5.0
+            path.lineWidth = lineWidth
             return path
         }
     }
@@ -92,7 +94,7 @@ class FaceView: UIView {
         let path = UIBezierPath()
         path.move(to: start)
         path.addCurve(to: end, controlPoint1: cp1, controlPoint2: cp2)
-        path.lineWidth = 5.0
+        path.lineWidth = lineWidth
         return path
     }
     
@@ -114,7 +116,7 @@ class FaceView: UIView {
         let browEnd = CGPoint(x: browCenter.x + eyeRadius, y: browCenter.y + tiltOffset)
         path.move(to: browStart)
         path.addLine(to: browEnd)
-        path.lineWidth = 5.0
+        path.lineWidth = lineWidth
         return path
     }
     
