@@ -7,13 +7,22 @@
 
 import UIKit
 
+@IBDesignable
 class FaceView: UIView {
 
-    var scale: CGFloat = 0.90
+    //스토리보드 인스펙터 상에서 보일 수 있게 하기 위해 @IBInspectable
+    //타입을 명시적으로 적어주어야 함
+    @IBInspectable
+    var scale: CGFloat = 0.90 
+    @IBInspectable
     var mouthCurvature: Double = 1.0 //굽은 비율 1 full smile, -1 full frown
+    @IBInspectable
     var eyesOpen: Bool = false
+    @IBInspectable
     var eyeBrowTilt: Double = -0.5 //-1 완전히 주름지게, 1은 완전히 풀리게
+    @IBInspectable
     var color: UIColor = UIColor.blue
+    @IBInspectable
     var lineWidth: CGFloat = 5.0
 
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
@@ -124,7 +133,7 @@ class FaceView: UIView {
         //0.0을 CGFloat형태로 변환하지 않는 이유는 리터럴(숫자값)이 주어졌을 때 인자가 CGFloat인걸 알고 자동으로 변환함
         //라디안 호보법: 2파이는 360도. 1파이는 180도
         //contentMode를 Redraw -> bound가 변경될때마다 다시 그림
-        UIColor.blue.set()
+        color.set()
         pathForCircleCenteredAtPoint(skullCenter, withRadius: skullRadius).stroke()
         pathForEye(eye: .Left).stroke()
         pathForEye(eye: .Right).stroke()
