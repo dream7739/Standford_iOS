@@ -13,17 +13,17 @@ class FaceView: UIView {
     //스토리보드 인스펙터 상에서 보일 수 있게 하기 위해 @IBInspectable
     //타입을 명시적으로 적어주어야 함
     @IBInspectable
-    var scale: CGFloat = 0.90 
+    var scale: CGFloat = 0.90 { didSet { setNeedsDisplay() } } //값이 설정될 때 다시 그리도록 처리
     @IBInspectable
-    var mouthCurvature: Double = 1.0 //굽은 비율 1 full smile, -1 full frown
+    var mouthCurvature: Double = 1.0 { didSet { setNeedsDisplay() } } //굽은 비율 1 full smile, -1 full frown
     @IBInspectable
-    var eyesOpen: Bool = false
+    var eyesOpen: Bool = false { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var eyeBrowTilt: Double = -0.5 //-1 완전히 주름지게, 1은 완전히 풀리게
+    var eyeBrowTilt: Double = -0.5 { didSet { setNeedsDisplay() } } //-1 완전히 주름지게, 1은 완전히 풀리게
     @IBInspectable
-    var color: UIColor = UIColor.blue
+    var color: UIColor = UIColor.blue { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var lineWidth: CGFloat = 5.0
+    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
 
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
     // = 으로 bounds같은 변수나 메소드 부를 수 없음
