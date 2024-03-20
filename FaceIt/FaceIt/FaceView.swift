@@ -11,7 +11,8 @@ class FaceView: UIView {
 
     var scale: CGFloat = 0.90
     var mouthCurvature: Double = 1.0 //굽은 비율 1 full smile, -1 full frown
-    var eyesOpen: Bool = true
+    var eyesOpen: Bool = false
+    var eyeBrowTilt: Double = -0.5 //-1 완전히 주름지게, 1은 완전히 풀리게
 
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
     // = 으로 bounds같은 변수나 메소드 부를 수 없음
@@ -29,6 +30,7 @@ class FaceView: UIView {
         static let SkullRadiusToMouthWidth: CGFloat = 1
         static let SkullRadiusToMouthHeight: CGFloat = 3
         static let SkulRadiusToMouthOffset: CGFloat = 3
+        static let SkullRadiusToBrowOffset: CGFloat = 5
     }
     
     private enum Eye {
@@ -94,6 +96,28 @@ class FaceView: UIView {
         return path
     }
     
+    private func pathForBrow(eye: Eye) -> UIBezierPath {
+        var tilt = eyeBrowTilt
+        
+        switch eye {
+        case .Left: tilt *= -1.0
+        case .Right: break
+        }
+        
+        let path = UIBezierPath()
+        var browCenter = getEyeCenter(eye: eye)
+        let browOffset = skullRadius / Ratios.SkullRadiusToBrowOffset
+        let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
+        browCenter.y -= browOffset
+        let tiltOffset = CGFloat(max(-1, min(1, tilt))) * eyeRadius / 2
+        let browStart = CGPoint(x: browCenter.x - eyeRadius, y: browCenter.y - tiltOffset)
+        let browEnd = CGPoint(x: browCenter.x + eyeRadius, y: browCenter.y + tiltOffset)
+        path.move(to: browStart)
+        path.addLine(to: browEnd)
+        path.lineWidth = 5.0
+        return path
+    }
+    
     override func draw(_ rect: CGRect) {
         //0.0을 CGFloat형태로 변환하지 않는 이유는 리터럴(숫자값)이 주어졌을 때 인자가 CGFloat인걸 알고 자동으로 변환함
         //라디안 호보법: 2파이는 360도. 1파이는 180도
@@ -103,6 +127,8 @@ class FaceView: UIView {
         pathForEye(eye: .Left).stroke()
         pathForEye(eye: .Right).stroke()
         pathForMouth().stroke() //Bezier curve 사용 - 두 포인트 사이를 그린 선. 시작과 끝 두개의 컨트롤 포인트 필요
+        pathForBrow(eye: .Left).stroke()
+        pathForBrow(eye: .Right).stroke()
     }
 
 }
