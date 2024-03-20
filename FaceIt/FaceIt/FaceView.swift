@@ -11,6 +11,7 @@ class FaceView: UIView {
 
     var scale: CGFloat = 0.90
     var mouthCurvature: Double = 1.0 //굽은 비율 1 full smile, -1 full frown
+    var eyesOpen: Bool = true
 
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
     // = 으로 bounds같은 변수나 메소드 부를 수 없음
@@ -61,7 +62,16 @@ class FaceView: UIView {
     private func pathForEye(eye: Eye) -> UIBezierPath {
         let eyeRadius = skullRadius / Ratios.SkullRadiusToEyeRadius
         let eyeCenter = getEyeCenter(eye: eye)
-        return pathForCircleCenteredAtPoint(eyeCenter, withRadius: eyeRadius)
+        
+        if eyesOpen {
+            return pathForCircleCenteredAtPoint(eyeCenter, withRadius: eyeRadius)
+        }else{
+            let path = UIBezierPath()
+            path.move(to: CGPoint(x: eyeCenter.x - eyeRadius, y: eyeCenter.y))
+            path.addLine(to: CGPoint(x: eyeCenter.x + eyeRadius, y: eyeCenter.y))
+            path.lineWidth = 5.0
+            return path
+        }
     }
     
     private func pathForMouth() -> UIBezierPath {
@@ -93,7 +103,6 @@ class FaceView: UIView {
         pathForEye(eye: .Left).stroke()
         pathForEye(eye: .Right).stroke()
         pathForMouth().stroke() //Bezier curve 사용 - 두 포인트 사이를 그린 선. 시작과 끝 두개의 컨트롤 포인트 필요
-        
     }
 
 }
