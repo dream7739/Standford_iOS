@@ -14,6 +14,7 @@
 		882435732BAA9AB900836BEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 882435722BAA9AB900836BEE /* Assets.xcassets */; };
 		882435762BAA9AB900836BEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882435742BAA9AB900836BEE /* LaunchScreen.storyboard */; };
 		8824357F2BAA9CA500836BEE /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824357E2BAA9CA500836BEE /* FaceView.swift */; };
+		884528CA2BAC24CD005DA780 /* FacialExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884528C92BAC24CD005DA780 /* FacialExpressions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		882435752BAA9AB900836BEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		882435772BAA9AB900836BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8824357E2BAA9CA500836BEE /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		884528C92BAC24CD005DA780 /* FacialExpressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialExpressions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				8824356D2BAA9AB800836BEE /* FaceViewController.swift */,
 				8824356F2BAA9AB800836BEE /* Main.storyboard */,
 				8824357E2BAA9CA500836BEE /* FaceView.swift */,
+				884528C92BAC24CD005DA780 /* FacialExpressions.swift */,
 				8824357D2BAA9B1B00836BEE /* SupportingFiles */,
 			);
 			path = FaceIt;
@@ -153,6 +156,7 @@
 				8824356A2BAA9AB800836BEE /* AppDelegate.swift in Sources */,
 				8824356C2BAA9AB800836BEE /* SceneDelegate.swift in Sources */,
 				8824357F2BAA9CA500836BEE /* FaceView.swift in Sources */,
+				884528CA2BAC24CD005DA780 /* FacialExpressions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,6 +42,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D4M-de-33h" secondAttribute="trailing" id="c3P-cH-XBw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="D4M-de-33h" id="y10-Vo-IVH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
