@@ -8,9 +8,17 @@
 import UIKit
 
 class FaceViewController: UIViewController {
-
+    
     //MVC생성 직후 outlet이 연결될 때 didSet호출
-    @IBOutlet weak var faceView: FaceView! { didSet {updateUI() } }
+    @IBOutlet weak var faceView: FaceView! {
+        didSet {
+            //pinch는 view의 스케일만 바꾸고 모델은 변경하지 않기 때문에 target은 faceView
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(
+                target: faceView, action: #selector(FaceView.changeScale(recognizer:))
+            ))
+            updateUI()
+        }
+    }
     
     //초기화 중에 값을 설정하면 didSet이 불리지 않음
     //초기화 하는 단계에서 발생했기 때문
@@ -32,7 +40,7 @@ class FaceViewController: UIViewController {
         faceView.mouthCurvature = mouthCurvatures[expression.mouth] ?? 0.0
         faceView.eyeBrowTilt = eyeBrowTilts[expression.eyeBrows] ?? 0.0
     }
-
-
+    
+    
 }
 

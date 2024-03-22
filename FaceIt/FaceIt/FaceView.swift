@@ -25,6 +25,16 @@ class FaceView: UIView {
     @IBInspectable
     var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
 
+    @objc func changeScale(recognizer: UIPinchGestureRecognizer){
+        switch recognizer.state {
+        case .changed, .ended:
+            scale *= recognizer.scale
+            recognizer.scale = 1.0
+        default:
+            break
+        }
+    }
+    
     // 초기화가 완전히 완료될때까지 property에 접근 불가능
     // = 으로 bounds같은 변수나 메소드 부를 수 없음
     // computed property로 사용 필요 : 이미 저장된 값(stored property)을 계산하여 get,set
