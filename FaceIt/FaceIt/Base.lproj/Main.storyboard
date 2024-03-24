@@ -13,8 +13,8 @@
             <objects>
                 <splitViewController allowDoubleColumnStyle="YES" id="ucR-oj-tHM" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="l9z-Ik-fRG" kind="relationship" relationship="masterViewController" id="k9P-k9-ckM"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="IaS-kg-PEL"/>
+                        <segue destination="l9z-Ik-fRG" kind="relationship" relationship="masterViewController" id="lee-sT-80Q"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="ST8-d2-xQf"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhy-Fy-eme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -105,7 +105,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" id="JnY-rR-JWd"/>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="angry" id="JnY-rR-JWd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6z-U3-SwW">
@@ -114,6 +114,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Happy">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="happy" id="3Ap-C2-ZSo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icw-oI-dDL">
                                         <rect key="frame" x="0.0" y="206" width="247" height="62"/>
@@ -121,6 +124,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Worried">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="worried" id="txz-nq-Ygp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTU-Ak-lBv">
                                         <rect key="frame" x="0.0" y="309" width="247" height="62"/>
@@ -128,6 +134,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Mischievious">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="mischievious" id="yD3-f8-TdB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -146,7 +155,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JnY-rR-JWd"/>
+        <segue reference="ST8-d2-xQf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

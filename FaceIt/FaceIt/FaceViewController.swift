@@ -43,13 +43,15 @@ class FaceViewController: UIViewController {
     private var eyeBrowTilts = [FacialExpressions.EyeBrows.Furrowed: -0.5, .Normal : 0.0, .Relaxed: 0.5]
     
     private func updateUI(){
-        switch expression.eyes {
-        case .Open: faceView.eyesOpen = true
-        case .Closed: faceView.eyesOpen = false
-        case .Squinting: faceView.eyesOpen = false
+        if faceView != nil {
+            switch expression.eyes {
+            case .Open: faceView.eyesOpen = true
+            case .Closed: faceView.eyesOpen = false
+            case .Squinting: faceView.eyesOpen = false
+            }
+            faceView.mouthCurvature = mouthCurvatures[expression.mouth] ?? 0.0
+            faceView.eyeBrowTilt = eyeBrowTilts[expression.eyeBrows] ?? 0.0
         }
-        faceView.mouthCurvature = mouthCurvatures[expression.mouth] ?? 0.0
-        faceView.eyeBrowTilt = eyeBrowTilts[expression.eyeBrows] ?? 0.0
     }
     
     @objc func increaseHappiness(){
@@ -62,14 +64,14 @@ class FaceViewController: UIViewController {
     
     @IBAction func toggleEyes(recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-                switch expression.eyes {
-                case .Open: expression.eyes = .Closed
-                case .Closed: expression.eyes = .Open
-                case .Squinting: break
-                }
+            switch expression.eyes {
+            case .Open: expression.eyes = .Closed
+            case .Closed: expression.eyes = .Open
+            case .Squinting: break
             }
+        }
     }
-
+    
     
 }
 
