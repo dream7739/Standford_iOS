@@ -15,6 +15,7 @@
 		882435762BAA9AB900836BEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882435742BAA9AB900836BEE /* LaunchScreen.storyboard */; };
 		8824357F2BAA9CA500836BEE /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824357E2BAA9CA500836BEE /* FaceView.swift */; };
 		884528CA2BAC24CD005DA780 /* FacialExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884528C92BAC24CD005DA780 /* FacialExpressions.swift */; };
+		88E6C3CD2BAFD83E00D9E823 /* EmotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6C3CC2BAFD83E00D9E823 /* EmotionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		882435772BAA9AB900836BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8824357E2BAA9CA500836BEE /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
 		884528C92BAC24CD005DA780 /* FacialExpressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacialExpressions.swift; sourceTree = "<group>"; };
+		88E6C3CC2BAFD83E00D9E823 /* EmotionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				8824356F2BAA9AB800836BEE /* Main.storyboard */,
 				8824357E2BAA9CA500836BEE /* FaceView.swift */,
 				884528C92BAC24CD005DA780 /* FacialExpressions.swift */,
+				88E6C3CC2BAFD83E00D9E823 /* EmotionsViewController.swift */,
 				8824357D2BAA9B1B00836BEE /* SupportingFiles */,
 			);
 			path = FaceIt;
@@ -154,6 +157,7 @@
 			files = (
 				8824356E2BAA9AB800836BEE /* FaceViewController.swift in Sources */,
 				8824356A2BAA9AB800836BEE /* AppDelegate.swift in Sources */,
+				88E6C3CD2BAFD83E00D9E823 /* EmotionsViewController.swift in Sources */,
 				8824356C2BAA9AB800836BEE /* SceneDelegate.swift in Sources */,
 				8824357F2BAA9CA500836BEE /* FaceView.swift in Sources */,
 				884528CA2BAC24CD005DA780 /* FacialExpressions.swift in Sources */,
