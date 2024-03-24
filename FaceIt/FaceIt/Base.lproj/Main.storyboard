@@ -13,8 +13,7 @@
             <objects>
                 <splitViewController allowDoubleColumnStyle="YES" id="ucR-oj-tHM" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="l9z-Ik-fRG" kind="relationship" relationship="masterViewController" id="lee-sT-80Q"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="ST8-d2-xQf"/>
+                        <segue destination="Jyi-9x-QF3" kind="relationship" relationship="masterViewController" id="lee-sT-80Q"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhy-Fy-eme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -85,7 +84,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-26" y="94"/>
+            <point key="canvasLocation" x="884" y="143"/>
         </scene>
         <!--Emotions View Controller-->
         <scene sceneID="Xaf-G1-LNP">
@@ -148,14 +147,33 @@
                             <constraint firstItem="K4I-cj-xxi" firstAttribute="centerY" secondItem="CEI-74-GiU" secondAttribute="centerY" id="rV6-3I-Ko6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5QW-F1-6fb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1i-58-BFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="-633"/>
+            <point key="canvasLocation" x="884.05797101449286" y="-633.48214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iWV-B5-XCc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jyi-9x-QF3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1x8-Yc-Plj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l9z-Ik-fRG" kind="relationship" relationship="rootViewController" id="i8x-ad-7fY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfF-Vl-QQs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="-633.48214285714278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ST8-d2-xQf"/>
+        <segue reference="yD3-f8-TdB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
