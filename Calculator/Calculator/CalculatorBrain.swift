@@ -17,6 +17,10 @@ class CalculatorBrain{
         internalProgram.append(operand as NSNumber)
     }
     
+    func addUnaryOperation(symbol: String, op: @escaping (Double) -> Double){
+        operation[symbol] = Operation.UnaryOperation(op)
+    }
+    
     private var operation: Dictionary<String, Operation> = [
         "π": Operation.Constant(M_PI),
         "e": Operation.Constant(M_E),
