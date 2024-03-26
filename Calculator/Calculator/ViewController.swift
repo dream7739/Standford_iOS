@@ -7,10 +7,24 @@
 
 import UIKit
 
+var calculatorCount = 0
 class ViewController: UIViewController {
     @IBOutlet private weak var display: UILabel!
     
     private var userInTheMiddleOfTyping = false
+    
+    //MVC가 생성될 때 오직 한 번 호출
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        calculatorCount += 1
+        print("Loaded up a new Calculator (count = \(calculatorCount))")
+    }
+    
+    //힙에서 사라질 때 불리는 메소드
+    deinit {
+        calculatorCount -= 1
+        print("Calculator left the heap (count = \(calculatorCount))")
+    }
     
     @IBAction private func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
@@ -60,10 +74,7 @@ class ViewController: UIViewController {
         displayValue = brain.result
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+
 
 
 }
