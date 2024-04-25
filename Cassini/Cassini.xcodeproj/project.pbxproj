@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88104A942BDA77DA0089A8F5 /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88104A932BDA77DA0089A8F5 /* CassiniViewController.swift */; };
 		883D060D2BD7C35F00F1E3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D060C2BD7C35F00F1E3B8 /* AppDelegate.swift */; };
 		883D060F2BD7C35F00F1E3B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D060E2BD7C35F00F1E3B8 /* SceneDelegate.swift */; };
 		883D06142BD7C35F00F1E3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883D06122BD7C35F00F1E3B8 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88104A932BDA77DA0089A8F5 /* CassiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 		883D06092BD7C35F00F1E3B8 /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		883D060C2BD7C35F00F1E3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		883D060E2BD7C35F00F1E3B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				883D060E2BD7C35F00F1E3B8 /* SceneDelegate.swift */,
 				883D06272BD7C76B00F1E3B8 /* DemoURL.swift */,
 				883D06122BD7C35F00F1E3B8 /* Main.storyboard */,
+				88104A932BDA77DA0089A8F5 /* CassiniViewController.swift */,
 				883D06212BD7C3E500F1E3B8 /* ImageViewController.swift */,
 				883D061A2BD7C36000F1E3B8 /* Info.plist */,
 			);
@@ -152,6 +155,7 @@
 				883D06282BD7C76B00F1E3B8 /* DemoURL.swift in Sources */,
 				883D060D2BD7C35F00F1E3B8 /* AppDelegate.swift in Sources */,
 				883D06222BD7C3E500F1E3B8 /* ImageViewController.swift in Sources */,
+				88104A942BDA77DA0089A8F5 /* CassiniViewController.swift in Sources */,
 				883D060F2BD7C35F00F1E3B8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,8 +303,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cassini/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -315,6 +321,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jm.Cassini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -326,8 +333,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cassini/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -342,6 +351,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jm.Cassini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
