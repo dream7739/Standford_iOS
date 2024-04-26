@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cassini View Controller-->
+        <!--cassini-->
         <scene sceneID="Kj9-kz-FOa">
             <objects>
                 <viewController id="5Px-pU-HiE" customClass="CassiniViewController" customModule="Cassini" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Earth"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Show Image" id="Ynk-ca-Epd"/>
+                                            <segue destination="X55-0S-XJT" kind="showDetail" identifier="Show Image" id="Ynk-ca-Epd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9J1-V0-ey4">
@@ -34,7 +34,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Cassini"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Show Image" id="elg-gE-EpZ"/>
+                                            <segue destination="X55-0S-XJT" kind="showDetail" identifier="Show Image" id="elg-gE-EpZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-Vs-PHk">
@@ -43,7 +43,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Saturn"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Show Image" id="zK3-9A-PES"/>
+                                            <segue destination="X55-0S-XJT" kind="showDetail" identifier="Show Image" id="zK3-9A-PES"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -56,7 +56,7 @@
                             <constraint firstItem="lox-zI-iPM" firstAttribute="centerX" secondItem="Kxo-km-Hgl" secondAttribute="centerX" id="dlo-F9-viJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9Pn-XR-Uuf"/>
+                    <navigationItem key="navigationItem" title="cassini" id="9Pn-XR-Uuf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUr-bP-JLr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,13 +85,14 @@
                             <constraint firstItem="xDw-ly-UkR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xGV-Yl-G9V"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C55-MS-Li3"/>
                     <connections>
                         <outlet property="scrollView" destination="xDw-ly-UkR" id="Uns-Io-DOl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442" y="601"/>
+            <point key="canvasLocation" x="468.11594202898556" y="600.66964285714278"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="l8D-wl-RS3">
@@ -123,9 +124,27 @@
             </objects>
             <point key="canvasLocation" x="-1352.1739130434785" y="-162.05357142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dMc-HY-w6R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X55-0S-XJT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="geg-Ee-fVf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LUl-vT-o9t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfg-h9-bCy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-442.02898550724643" y="600.66964285714278"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zK3-9A-PES"/>
+        <segue reference="elg-gE-EpZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
