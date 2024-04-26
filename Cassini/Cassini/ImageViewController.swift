@@ -12,14 +12,27 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     var imageURL: NSURL? {
         didSet{
             image = nil
-            fetchImage()
+            //화면에 나타나는 것 보장
+            if view.window != nil{
+                fetchImage()
+            }
         }
     }
     
     private func fetchImage(){
         if let url = imageURL {
-            if let imageData = NSData(contentsOf: url as URL){
-                image = UIImage(data: imageData as Data)
+            DispatchQueue.global(qos: .userInitiated).async {
+                let contentOfURL = NSData(contentsOf: url as URL)
+                
+                DispatchQueue.main.async {
+                    if let imageData = contentOfURL {
+                        if url == self.imageURL{
+                            self.image = UIImage(data: imageData as Data)
+                        }else{
+                            print("ignored data returned from url \(url)")
+                        }
+                    }
+                }
             }
         }
     }
@@ -47,6 +60,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             imageView.sizeToFit() //이미지뷰 사이즈 조절
             scrollView?.contentSize = imageView.frame.size
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if image == nil {
+            fetchImage()
         }
     }
     
