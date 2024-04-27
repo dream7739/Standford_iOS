@@ -23,6 +23,17 @@ class CassiniViewController: UIViewController {
         }
     }
     
+    @IBAction func showImage(_ sender: UIButton) {
+        //SplitView 상태에서만 가능하기 때문에 아닌 경우 세그웨이 연결이 필요
+        if let ivc = splitViewController?.viewControllers.last?.contentViewController as? ImageViewController {
+            let imageName = sender.currentTitle
+            ivc.imageURL = DemoURL.NASAImageNamed(imageName: imageName)
+            ivc.title = imageName
+        }else{
+            //스토리 보드 상 segue 존재해야 함
+            performSegue(withIdentifier: Storyboard.showImageSegue, sender: sender)
+        }
+    }
 }
 
 extension UIViewController {
