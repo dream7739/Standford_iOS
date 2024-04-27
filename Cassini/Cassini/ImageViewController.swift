@@ -8,7 +8,7 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-
+    
     var imageURL: NSURL? {
         didSet{
             image = nil
@@ -21,16 +21,19 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     private func fetchImage(){
         if let url = imageURL {
+            spinner?.startAnimating()
             DispatchQueue.global(qos: .userInitiated).async {
                 let contentOfURL = NSData(contentsOf: url as URL)
                 
                 DispatchQueue.main.async {
-                    if let imageData = contentOfURL {
-                        if url == self.imageURL{
+                    if url == self.imageURL {
+                        if let imageData = contentOfURL {
                             self.image = UIImage(data: imageData as Data)
                         }else{
-                            print("ignored data returned from url \(url)")
+                            self.spinner?.stopAnimating()
                         }
+                    }else{
+                        print("ignored data from returned from url \(url)")
                     }
                 }
             }
@@ -50,6 +53,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     private var imageView = UIImageView()
     
     private var image: UIImage? {
@@ -60,6 +65,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             imageView.image = newValue
             imageView.sizeToFit() //이미지뷰 사이즈 조절
             scrollView?.contentSize = imageView.frame.size
+            spinner?.stopAnimating()
         }
     }
     
@@ -75,5 +81,5 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(imageView)
     }
     
-
+    
 }
