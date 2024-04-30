@@ -1,5 +1,5 @@
 //
-//  PokeCollectionViewCell.swift
+//  PokemonCollectionViewCell.swift
 //  PokeDocs
 //
 //  Created by 홍정민 on 2024/04/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokeCollectionViewCell: UICollectionViewCell {
+class PokemonCollectionViewCell: UICollectionViewCell {
     static let cellID = "PokeCollectionViewCell"
     
     var pokemonInfo: PokemonDetailInfo? {
@@ -35,7 +35,7 @@ class PokeCollectionViewCell: UICollectionViewCell {
     
     lazy var nameLabel:UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -74,7 +74,7 @@ class PokeCollectionViewCell: UICollectionViewCell {
         textView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         textView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        textView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
+        textView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.18).isActive = true
         
         nameLabel.centerXAnchor.constraint(equalTo: textView.centerXAnchor).isActive = true
         nameLabel.centerYAnchor.constraint(equalTo: textView.centerYAnchor).isActive = true

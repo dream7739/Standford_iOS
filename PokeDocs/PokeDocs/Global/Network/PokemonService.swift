@@ -14,12 +14,12 @@ class PokemonService {
             let (data, response) = try await URLSession.shared.data(from: url)
             guard let httpResponse = response as? HTTPURLResponse,
                   httpResponse.statusCode == 200 else {
-                      throw PokeServiceError.invalideServiceResponse
+                      throw PokemonServiceError.invalideServiceResponse
                   }
             let pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
             return pokemon
         }else{
-            throw PokeServiceError.unsupportedURL
+            throw PokemonServiceError.unsupportedURL
         }
     }
     
@@ -28,12 +28,12 @@ class PokemonService {
             let (data, response) = try await URLSession.shared.data(from: url)
             guard let httpResponse = response as? HTTPURLResponse,
                   httpResponse.statusCode == 200 else {
-                      throw PokeServiceError.invalideServiceResponse
+                      throw PokemonServiceError.invalideServiceResponse
                   }
             let pokemonDetail = try JSONDecoder().decode(PokemonDetailInfo.self, from: data)
             return pokemonDetail
         }else{
-            throw PokeServiceError.unsupportedURL
+            throw PokemonServiceError.unsupportedURL
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokemonViewControler.swift
 //  PokeDocs
 //
 //  Created by 홍정민 on 2024/04/29.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PokeViewControler: UICollectionViewController {
+class PokemonViewControler: UICollectionViewController {
     private let pokemonService = PokemonService()
     
     private var pokemons: Pokemon?
@@ -31,9 +31,9 @@ class PokeViewControler: UICollectionViewController {
             let entirePokemons = try await pokemonService.fetchPokemons()
             pokemons = entirePokemons
             await getPokemonDetail()
-        }catch PokeServiceError.invalideServiceResponse {
+        }catch PokemonServiceError.invalideServiceResponse {
             print("pokedocs Error - invalide service response")
-        }catch PokeServiceError.unsupportedURL {
+        }catch PokemonServiceError.unsupportedURL {
             print("pokemon Error - unsupported url")
         }catch {
             print("error accured")
@@ -69,14 +69,14 @@ class PokeViewControler: UICollectionViewController {
     private func configureViewComponents(){
         self.title = "홍켓몬GO"
         self.collectionView.backgroundColor = UIColor.yellow300
-        collectionView.register(PokeCollectionViewCell.self, forCellWithReuseIdentifier: PokeCollectionViewCell.cellID)
+        collectionView.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: PokemonCollectionViewCell.cellID)
         navigationController?.navigationBar.shadowImage = UIImage()
         
     }
 }
 
 //섹션 개수, 로우 개수, 리턴할 셀을 설정
-extension PokeViewControler {
+extension PokemonViewControler {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -86,14 +86,14 @@ extension PokeViewControler {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokeCollectionViewCell.cellID, for: indexPath) as! PokeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCollectionViewCell.cellID, for: indexPath) as! PokemonCollectionViewCell
         cell.pokemonInfo = pokemonDetail[indexPath.row]
         return cell
     }
 }
 
 //셀 사이즈 설정
-extension PokeViewControler: UICollectionViewDelegateFlowLayout {
+extension PokemonViewControler: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.frame.width - 30) / 2
         let height = (collectionView.frame.height - 30) / 3

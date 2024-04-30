@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let pokeViewController = PokeViewControler(collectionViewLayout: UICollectionViewFlowLayout())
-        let rootViewController = UINavigationController(rootViewController: pokeViewController)
+        let pokemonViewController = PokemonViewControler(collectionViewLayout: UICollectionViewFlowLayout())
+        let rootViewController = UINavigationController(rootViewController: pokemonViewController)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         // makeKeyAndVisible : keyWindow로 설정
