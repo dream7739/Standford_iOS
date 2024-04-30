@@ -13,12 +13,25 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     var pokemonInfo: PokemonDetailInfo? {
         didSet {
             guard let pokemonInfo = pokemonInfo else { return }
+            
+            //포켓몬 이름
             self.nameLabel.text = pokemonInfo.name
+            
+            //포켓몬 이미지
             guard let img = pokemonInfo.sprites?.front_default else { return }
             guard let imgURL = NSURL(string: img) else { return }
             self.imageView.loadImage(from: imgURL as URL)
+            
+            //포켓몬 타입
+            guard let type = pokemonInfo.types?.first?.type?.name else { return }
+            self.typeLabel.text = type
         }
     }
+    
+    lazy var backDecoView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
@@ -29,13 +42,21 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     lazy var textView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.yellow100
+        view.backgroundColor = UIColor.grayScale900
         return view
     }()
     
-    lazy var nameLabel:UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    lazy var typeLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = UIColor.grayScale800
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
     
@@ -54,31 +75,46 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     func configureViewComponents(){
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true //전체 뷰를 초과하지 않도록
+        self.backgroundColor = UIColor.grayScale800
         
         //코드로 오토레이아웃 설정하도록 해당 옵션을 false
         //슈퍼뷰의 bounds가 변경될 때 autoResizing 기능
         //스토리보드에서는 오토레이아웃 적용된 뷰에 자동으로 false를 적용해주지만 코드에서는 직접 꺼주어야 함
+        backDecoView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         textView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        self.addSubview(imageView)
-        self.addSubview(textView)
+        self.addSubview(backDecoView)
+        backDecoView.layer.cornerRadius = 10
+        backDecoView.layer.masksToBounds = true
+        
+        backDecoView.addSubview(imageView)
+        backDecoView.addSubview(textView)
         textView.addSubview(nameLabel)
+        textView.addSubview(typeLabel)
         
-        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        imageView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        backDecoView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        backDecoView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        backDecoView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
+        backDecoView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         
-        textView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        textView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        textView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.18).isActive = true
+        imageView.topAnchor.constraint(equalTo: backDecoView.topAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: backDecoView.leftAnchor).isActive = true
+        imageView.rightAnchor.constraint(equalTo: backDecoView.rightAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: backDecoView.heightAnchor, multiplier: 0.6).isActive = true
+
+        textView.leftAnchor.constraint(equalTo: backDecoView.leftAnchor).isActive = true
+        textView.rightAnchor.constraint(equalTo: backDecoView.rightAnchor).isActive = true
+        textView.bottomAnchor.constraint(equalTo: backDecoView.bottomAnchor).isActive = true
+        textView.heightAnchor.constraint(equalTo: backDecoView.heightAnchor, multiplier: 0.4).isActive = true
         
-        nameLabel.centerXAnchor.constraint(equalTo: textView.centerXAnchor).isActive = true
-        nameLabel.centerYAnchor.constraint(equalTo: textView.centerYAnchor).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: textView.leftAnchor,constant: 15).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: textView.topAnchor, constant: 15).isActive = true
         
+        typeLabel.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor).isActive = true
+        typeLabel.rightAnchor.constraint(equalTo: textView.rightAnchor,constant: -10).isActive = true
         
         
     }

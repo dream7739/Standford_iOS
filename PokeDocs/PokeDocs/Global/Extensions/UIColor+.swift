@@ -8,8 +8,11 @@
 import UIKit
 
 extension UIColor {
-    static let grayScale900 = UIColor(red: 45/255, green: 45/255, blue: 45/255, alpha: 1)
-       static let grayScale800 = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
+    //TextView Color - grayScale900
+    //CollectionViewCell Background Color - grayScale800
+    
+    static let grayScale900 = UIColor(red: 229/255, green: 231/255, blue: 235/255, alpha: 1)
+       static let grayScale800 = UIColor(red: 75/255, green: 85/255, blue: 99/255, alpha: 1)
        static let grayScale700 = UIColor(red:95/255, green: 95/255, blue: 95/255, alpha: 1)
        static let grayScale600 = UIColor(red: 132/255, green: 132/255, blue: 132/255, alpha: 1)
        static let grayScale500 = UIColor(red: 168/255, green: 168/255, blue: 168/255, alpha: 1)

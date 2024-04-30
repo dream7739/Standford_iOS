@@ -56,6 +56,7 @@ class PokemonViewControler: UICollectionViewController {
                     pokemonDetail.append(result)
                 }
                 
+                print("\(pokemonDetail)")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -68,7 +69,6 @@ class PokemonViewControler: UICollectionViewController {
     
     private func configureViewComponents(){
         self.title = "홍켓몬GO"
-        self.collectionView.backgroundColor = UIColor.yellow300
         collectionView.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: PokemonCollectionViewCell.cellID)
         navigationController?.navigationBar.shadowImage = UIImage()
         

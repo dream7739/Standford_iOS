@@ -11,5 +11,6 @@ struct PokemonDetailInfo: Decodable {
     let id: Int
     let name: String?
     let height: Int?
-    let sprites: PokemonSprites?
+    let sprites: PokemonSprites? // 사진
+    let types: [PokemonTypes]? // 속성(불, 물... ETC)
 }
