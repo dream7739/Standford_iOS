@@ -10,13 +10,9 @@ import UIKit
 class PokeViewControler: UICollectionViewController {
     private let pokemonService = PokemonService()
     
-    var pokemons: Pokemon?
+    private var pokemons: Pokemon?
     
-    var pokemonDetail = [PokemonDetailInfo](){
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    private var pokemonDetail = [PokemonDetailInfo]()
     
     override func viewWillAppear(_ animated: Bool) {
         Task{
@@ -32,13 +28,15 @@ class PokeViewControler: UICollectionViewController {
     
     private func getPokemons() async {
         do{
-            guard let entirePokemons = try? await pokemonService.fetchPokemons() else { return }
+            let entirePokemons = try await pokemonService.fetchPokemons()
             pokemons = entirePokemons
             await getPokemonDetail()
         }catch PokeServiceError.invalideServiceResponse {
             print("pokedocs Error - invalide service response")
         }catch PokeServiceError.unsupportedURL {
             print("pokemon Error - unsupported url")
+        }catch {
+            print("error accured")
         }
         
     }
@@ -58,6 +56,9 @@ class PokeViewControler: UICollectionViewController {
                     pokemonDetail.append(result)
                 }
                 
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }catch {
             print("Error loading Pokemon details: \(error.localizedDescription)")
@@ -69,7 +70,6 @@ class PokeViewControler: UICollectionViewController {
         self.title = "홍켓몬GO"
         self.collectionView.backgroundColor = UIColor.yellow300
         collectionView.register(PokeCollectionViewCell.self, forCellWithReuseIdentifier: PokeCollectionViewCell.cellID)
-       
         navigationController?.navigationBar.shadowImage = UIImage()
         
     }
