@@ -10,6 +10,16 @@ import UIKit
 class PokeCollectionViewCell: UICollectionViewCell {
     static let cellID = "PokeCollectionViewCell"
     
+    var pokemonInfo: PokemonDetailInfo? {
+        didSet {
+            guard let pokemonInfo = pokemonInfo else { return }
+            self.nameLabel.text = pokemonInfo.name
+            guard let img = pokemonInfo.sprites?.front_default else { return }
+            guard let imgURL = NSURL(string: img) else { return }
+            self.imageView.loadImage(from: imgURL as URL)
+        }
+    }
+    
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = UIColor.tertiarySystemBackground
@@ -25,7 +35,6 @@ class PokeCollectionViewCell: UICollectionViewCell {
     
     lazy var nameLabel:UILabel = {
         let label = UILabel()
-        label.text = "홍켓몬"
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
@@ -40,6 +49,7 @@ class PokeCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func configureViewComponents(){
         self.layer.cornerRadius = 20
@@ -70,6 +80,6 @@ class PokeCollectionViewCell: UICollectionViewCell {
         nameLabel.centerYAnchor.constraint(equalTo: textView.centerYAnchor).isActive = true
         
         
-
+        
     }
 }
