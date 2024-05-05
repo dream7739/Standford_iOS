@@ -113,9 +113,8 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         nameLabel.leftAnchor.constraint(equalTo: textView.leftAnchor,constant: 15).isActive = true
         nameLabel.topAnchor.constraint(equalTo: textView.topAnchor, constant: 15).isActive = true
         
-        typeLabel.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor).isActive = true
-        typeLabel.rightAnchor.constraint(equalTo: textView.rightAnchor,constant: -10).isActive = true
-        
+        typeLabel.leftAnchor.constraint(equalTo: nameLabel.leftAnchor).isActive = true
+        typeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 5).isActive = true
         
     }
 }
